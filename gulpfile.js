@@ -17,7 +17,7 @@ build.configureWebpack.mergeConfig({
             loader: "babel-loader",
             options:
             {
-              exclude: /node_modules/,
+              exclude:  [/node_modules\/(core-js)/,/node_modules\/(babel)/ ] ,
               include: [ 'node_modules/sp-svelte-classification-banner/**' ],
               presets: [["@babel/preset-env",
                 {

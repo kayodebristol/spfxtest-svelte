@@ -18,6 +18,8 @@
     "@microsoft/sp-core-library": "~1.4.0",
     "@microsoft/sp-dialog": "~1.4.0",
     "core-js": "^3.6.5",
+    "polyfill-library": "^3.96.0",
+    "polyfill-library-node": "^1.0.0",
     "svelte": "^3.24.1"
   },
   "devDependencies": {
