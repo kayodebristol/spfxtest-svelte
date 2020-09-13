@@ -10,20 +10,34 @@ const sourcemaps = require('gulp-sourcemaps');
 
 build.configureWebpack.mergeConfig({
     additionalConfiguration: (generatedConfiguration) => {
-      generatedConfiguration.module.rules.push(
+      generatedConfiguration.module.rules.push([
+        {
+          test: /\.(html|svelte)$/,
+          exclude: /node_modules/,
+          use: {
+            loader: 'svelte-loader',
+            options: {
+              preprocess: require('svelte-preprocess')({
+                /* options */
+            })
+            },
+          },
+        },
         {
           test: /\.m?js$/, use:
           {
             loader: "babel-loader",
             options:
             {
-              exclude:  [/node_modules\/(core-js)/,/node_modules\/(babel)/ ] ,
-              include: [ 'node_modules/sp-svelte-classification-banner/**' ],
+              exclude:  /node_modules/ ,
+              /* Include modules requiring additional polyfills
+              include: [ 'node_modules/[module_name]/**',  'node_modules/[module_name]/**' ],
+              */
               presets: [["@babel/preset-env",
                 {
-                    targets: 'IE 10',
-                  useBuiltIns: 'usage',
-						corejs: 3
+                    targets: 'IE 11',
+                    useBuiltIns: 'usage',
+                    corejs: 3
                 }]],
                 plugins: [
                     '@babel/plugin-syntax-dynamic-import',
@@ -38,10 +52,12 @@ build.configureWebpack.mergeConfig({
                     ]
             }
           }
-        }
-      );
+        },
+      ]);
   
       return generatedConfiguration;
     }
   });
+
+
 build.initialize(gulp);

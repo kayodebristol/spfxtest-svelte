@@ -10,7 +10,7 @@ import { Dialog } from '@microsoft/sp-dialog';
 import * as strings from 'HelloWorldApplicationCustomizerStrings';
  
 
-import classificationbanner from 'sp-svelte-classification-banner';
+import ClassificationBanner from './ClassificationBanner.svelte';
 const LOG_SOURCE: string = 'HelloWorldApplicationCustomizer';
 
 /**
@@ -47,7 +47,7 @@ export default class HelloWorldApplicationCustomizer
       return;
     }
     
-    const classificationBanner: typeof classificationbanner = new classificationbanner
+    const cb: typeof ClassificationBanner = new ClassificationBanner
     ({
       target: this._topPlaceholder.domElement,
       props: {
