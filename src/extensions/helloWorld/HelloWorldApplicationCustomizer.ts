@@ -6,11 +6,10 @@ import {
   PlaceholderName
 } from '@microsoft/sp-application-base';
 import { Dialog } from '@microsoft/sp-dialog';
-
 import * as strings from 'HelloWorldApplicationCustomizerStrings';
- 
+import ClassificationBanner from 'sp-svelte-classification-banner';
+import '@pnp/polyfill-ie11';
 
-import ClassificationBanner from './ClassificationBanner.svelte';
 const LOG_SOURCE: string = 'HelloWorldApplicationCustomizer';
 
 /**
@@ -51,8 +50,8 @@ export default class HelloWorldApplicationCustomizer
     ({
       target: this._topPlaceholder.domElement,
       props: {
-        message: 'This content is classified up to the UNCLASSIFIED//FOUO level', 
-        title: "United States Africa Command"}
+        message: 'UNCLASSIFIED', 
+        title: "Org Name Here"}
     }); 
     
 

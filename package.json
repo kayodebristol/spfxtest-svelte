@@ -17,8 +17,8 @@
     "@microsoft/sp-application-base": "~1.4.0",
     "@microsoft/sp-core-library": "~1.4.0",
     "@microsoft/sp-dialog": "~1.4.0",
-    "core-js": "^3.6.5",
-    "svelte": "^3.25.0"
+    "@pnp/polyfill-ie11": "^2.0.2",
+    "sp-svelte-classification-banner": "0.0.6"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",
